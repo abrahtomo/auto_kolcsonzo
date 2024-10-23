@@ -1,1 +1,3 @@
-# auto_kolcsonzo
+# Autókölcsönző - Szofterfejlesztés mérnököknek
+
+Ez a repository az első olyan csoportmunkát tartalmazza, amelyben végigkísérhetjük egy project életútját a munkában használt módszerek és eszközök segítségével. Egy egyszerű JavaFx alapú frontenddel rendelkező autókölcsönzőt fog az alkalmazás szimulálni. Az applikációnak lesz egy nyilvános nézete, ahol meg lehet majd tekinteni a bérelhető járműveket, valamint különböző szempontok alapján szűrni is lehet rájuk. Ezen felül szeretnék biztosítani a user-ek számára egy bejelentkező felületet, amivel a foglalásaikat tudják csinálni. Az alkalmazásnak lesz egy admin oldala is, ahol az adminok módosíthatják az árukészletet.
