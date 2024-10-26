@@ -1,50 +1,60 @@
 package hu.unideb.inf;
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class mainPageController implements Initializable {
+class MainPageController implements Initializable {
 
     @FXML
-    private TableColumn vehicleTypeColumn;
+    private TableView<Vehicle> vehicleTableView;
     @FXML
-    private TableColumn makeColumn;
+    private TableColumn<Vehicle, String> vehicleTypeColumn;
     @FXML
-    private TableColumn modelColumn;
+    private TableColumn<Vehicle, String> makeColumn;
     @FXML
-    private TableColumn yearColumn;
+    private TableColumn<Vehicle, String> modelColumn;
     @FXML
-    private TableColumn engineColumn;
+    private TableColumn<Vehicle, Integer> yearColumn;
     @FXML
-    private TableColumn fuelTypeColumn;
+    private TableColumn<Vehicle, String> engineColumn;
     @FXML
-    private TableColumn seatingCapacityColumn;
+    private TableColumn<Vehicle, String> fuelTypeColumn;
+    @FXML
+    private TableColumn<Vehicle, Integer> seatingCapacityColumn;
 
-
-    @FXML
-    private TextField vehicleTypeTF;
-    @FXML
-    private TextField makeTF;
-    @FXML
-    private TextField modelTF;
-    @FXML
-    private TextField yearTF;
-    @FXML
-    private TextField engineTF;
-    @FXML
-    private TextField fuelTypeTF;
-    @FXML
-    private TextField seatingCapacityTF;
+    private ObservableList<Vehicle> vehicleData;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Bind columns to Vehicle properties
+        vehicleTypeColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
+        modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
+        engineColumn.setCellValueFactory(new PropertyValueFactory<>("engine"));
+        fuelTypeColumn.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
+        seatingCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("seatingCapacity"));
 
+        try {
+            loadVehicleData();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+    private void loadVehicleData() throws SQLException {
+        List<Vehicle> vehicleList = Database.getVehicles();
+        vehicleData = FXCollections.observableArrayList(vehicleList);
+        vehicleTableView.setItems(vehicleData);
+    }
 }
