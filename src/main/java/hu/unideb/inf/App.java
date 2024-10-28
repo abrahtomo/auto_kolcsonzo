@@ -1,5 +1,8 @@
 package hu.unideb.inf;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,11 +28,24 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
 
-        try {
-            Connection connection = DatabaseConnection.connect();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("auto_kolcsonzo");
+        EntityManager em = emf.createEntityManager();
+
+        Vehicle vehicle1 = new Vehicle("asd", "sdf", "fsd", 2010, "e", "b", 4);
+
+        Vehicle vehicle2 = new Vehicle("asd", "sdf", "fsd", 2010, "e", "b", 4);
+
+        em.getTransaction().begin();
+        em.persist(vehicle1);
+        em.persist(vehicle2);
+        em.getTransaction().commit();
+
+        var vehicles = em.createQuery("from Vehicle", Vehicle.class).getResultList();
+        vehicles.forEach(System.out::println);
+
+        em.close();
+        emf.close();
+
         System.out.println("Database connected successfully!");
     }
 

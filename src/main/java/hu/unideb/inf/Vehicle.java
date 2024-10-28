@@ -1,12 +1,37 @@
 package hu.unideb.inf;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "vehicles")
 public class Vehicle {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
     private String vehicleType;
+
+    @Column(nullable = false)
     private String make;
+
+    @Column(nullable = false)
     private String model;
+
+    @Column(nullable = false)
     private int year;
+
+    @Column(nullable = false)
     private String engine;
+
+    @Column(nullable = false)
     private String fuelType;
+
+    @Column(nullable = false)
     private int seatingCapacity;
 
     public Vehicle(String vehicleType, String make, String model, int year, String engine, String fuelType, int seatingCapacity) {
@@ -18,26 +43,4 @@ public class Vehicle {
         this.fuelType = fuelType;
         this.seatingCapacity = seatingCapacity;
     }
-
-    // Getters and Setters for each field
-    public String getVehicleType() { return vehicleType; }
-    public void setVehicleType(String vehicleType) { this.vehicleType = vehicleType; }
-
-    public String getMake() { return make; }
-    public void setMake(String make) { this.make = make; }
-
-    public String getModel() { return model; }
-    public void setModel(String model) { this.model = model; }
-
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
-
-    public String getEngine() { return engine; }
-    public void setEngine(String engine) { this.engine = engine; }
-
-    public String getFuelType() { return fuelType; }
-    public void setFuelType(String fuelType) { this.fuelType = fuelType; }
-
-    public int getSeatingCapacity() { return seatingCapacity; }
-    public void setSeatingCapacity(int seatingCapacity) { this.seatingCapacity = seatingCapacity; }
 }
