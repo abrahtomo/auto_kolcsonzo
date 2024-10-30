@@ -33,9 +33,6 @@ public class MainApp extends Application {
         System.out.println("JDBC URL: jdbc:h2:mem:my_database");
         System.out.println("User Name: sa");
         System.out.println("Password: ");
-
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLStudentsScene.fxml"));
-
     }
 
     private static void startDatabase() throws SQLException {
