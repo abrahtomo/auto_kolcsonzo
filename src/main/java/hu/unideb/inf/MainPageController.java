@@ -1,54 +1,74 @@
 package hu.unideb.inf;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
 
     @FXML
-    private TableColumn vehicleTypeColumn;
-    @FXML
-    private TableColumn makeColumn;
-    @FXML
-    private TableColumn modelColumn;
-    @FXML
-    private TableColumn yearColumn;
-    @FXML
-    private TableColumn engineColumn;
-    @FXML
-    private TableColumn fuelTypeColumn;
-    @FXML
-    private TableColumn seatingCapacityColumn;
-
+    private TableView<Vehicle> vehicleTable;
 
     @FXML
-    private TextField vehicleTypeTF;
+    private TableColumn<Vehicle, String> vehicleTypeColumn;
     @FXML
-    private TextField makeTF;
+    private TableColumn<Vehicle, String> makeColumn;
     @FXML
-    private TextField modelTF;
+    private TableColumn<Vehicle, String> modelColumn;
     @FXML
-    private TextField yearTF;
+    private TableColumn<Vehicle, Integer> yearColumn;
     @FXML
-    private TextField engineTF;
+    private TableColumn<Vehicle, String> engineColumn;
     @FXML
-    private TextField fuelTypeTF;
+    private TableColumn<Vehicle, String> fuelTypeColumn;
     @FXML
-    private TextField seatingCapacityTF;
+    private TableColumn<Vehicle, Integer> seatingCapacityColumn;
 
-    private void addVehicleBt(ActionEvent event) {
+    private ObservableList<Vehicle> vehicleList = FXCollections.observableArrayList();
 
-    }
+    private EntityManagerFactory entityManagerFactory;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
 
+        vehicleTypeColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
+        modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
+        engineColumn.setCellValueFactory(new PropertyValueFactory<>("engine"));
+        fuelTypeColumn.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
+        seatingCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("seatingCapacity"));
+
+        loadDataFromDatabase();
     }
 
+    private void loadDataFromDatabase() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        List<Vehicle> vehicles = entityManager.createQuery("SELECT v FROM Vehicle v", Vehicle.class).getResultList();
+        vehicleList.setAll(vehicles);
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        vehicleTable.setItems(vehicleList);
+    }
+
+    @FXML
+    private void addVehicleBt(ActionEvent event) {
+    }
 }
