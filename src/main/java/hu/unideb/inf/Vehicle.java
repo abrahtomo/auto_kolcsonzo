@@ -26,6 +26,8 @@ public class Vehicle {
 
     private int seatingCapacity;
 
+    private int TypeID;
+
     public Vehicle() {}
 
     public Vehicle(String vehicleType, String make, String model, int year, String engine, String fuelType, int seatingCapacity) {
@@ -36,6 +38,7 @@ public class Vehicle {
         this.engine = engine;
         this.fuelType = fuelType;
         this.seatingCapacity = seatingCapacity;
+        this.TypeID = TypeID;
     }
 
     public String getVehicleType() {
@@ -92,5 +95,13 @@ public class Vehicle {
 
     public void setSeatingCapacity(int seatingCapacity) {
         this.seatingCapacity = seatingCapacity;
+    }
+
+    public int getTypeID() {
+        return TypeID;
+    }
+
+    public void setTypeID(int TypeID) {
+        this.TypeID= TypeID;
     }
 }

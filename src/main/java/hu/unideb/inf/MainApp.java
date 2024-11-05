@@ -17,16 +17,18 @@ public class MainApp extends Application {
 
     public static void main(String[] args) throws SQLException {
         startDatabase();
+
+        System.out.println("Open your browser and navigate to http://localhost:8082/");
+        System.out.println("JDBC URL: jdbc:h2:file:~/my_database");
+        System.out.println("User Name: sa");
+        System.out.println("Password: ");
+
         launch();
 
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
-        System.out.println("Open your browser and navigate to http://localhost:8082/");
-        System.out.println("JDBC URL: jdbc:h2:mem:my_database");
-        System.out.println("User Name: sa");
-        System.out.println("Password: ");
     }
 
     private static void startDatabase() throws SQLException {
