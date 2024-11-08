@@ -1,5 +1,6 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.Vehicle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,10 +36,13 @@ public class MainPageController implements Initializable {
     private TableColumn<Vehicle, String> fuelTypeColumn;
     @FXML
     private TableColumn<Vehicle, Integer> seatingCapacityColumn;
+    @FXML
+    private TableColumn<Vehicle, Integer> TypeIDColumn;
 
     private ObservableList<Vehicle> vehicleList = FXCollections.observableArrayList();
 
     private EntityManagerFactory entityManagerFactory;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -51,6 +55,7 @@ public class MainPageController implements Initializable {
         engineColumn.setCellValueFactory(new PropertyValueFactory<>("engine"));
         fuelTypeColumn.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
         seatingCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("seatingCapacity"));
+        //TypeIDColumn.setCellValueFactory(new PropertyValueFactory<>("type_id"));
 
         loadDataFromDatabase();
     }

@@ -1,8 +1,6 @@
-package hu.unideb.inf;
+package hu.unideb.inf.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Vehicle {
@@ -26,9 +24,13 @@ public class Vehicle {
 
     private int seatingCapacity;
 
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private VehicleType type;
+
     public Vehicle() {}
 
-    public Vehicle(String vehicleType, String make, String model, int year, String engine, String fuelType, int seatingCapacity) {
+    public Vehicle(String vehicleType, String make, String model, int year, String engine, String fuelType, int seatingCapacity, VehicleType type) {
         this.vehicleType = vehicleType;
         this.make = make;
         this.model = model;
@@ -36,6 +38,7 @@ public class Vehicle {
         this.engine = engine;
         this.fuelType = fuelType;
         this.seatingCapacity = seatingCapacity;
+        this.type = type;
     }
 
     public String getVehicleType() {
@@ -92,5 +95,13 @@ public class Vehicle {
 
     public void setSeatingCapacity(int seatingCapacity) {
         this.seatingCapacity = seatingCapacity;
+    }
+
+    public VehicleType getType() {
+        return type;
+    }
+
+    public void setType(VehicleType type) {
+        this.type = type;
     }
 }
