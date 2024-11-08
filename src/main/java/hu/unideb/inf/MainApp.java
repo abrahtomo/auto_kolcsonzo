@@ -1,5 +1,7 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.Vehicle;
+import hu.unideb.inf.model.VehicleType;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +14,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MainApp extends Application {
 
@@ -23,12 +26,25 @@ public class MainApp extends Application {
         System.out.println("User Name: sa");
         System.out.println("Password: ");
 
-        launch();
-
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+        /*entityManager.getTransaction().begin();
 
+        VehicleType vehicleType = new VehicleType();
+        vehicleType.setName("Személygépjármű");
+
+        VehicleType vehicleType1 = new VehicleType();
+        vehicleType1.setName("Mezőgazdasági munkagép");
+
+        entityManager.persist(vehicleType);
+        entityManager.persist(vehicleType1);
+        entityManager.createQuery("UPDATE Vehicle SET type_id = 1").executeUpdate();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();*/
+
+        launch();
     }
 
     private static void startDatabase() throws SQLException {
