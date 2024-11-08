@@ -1,6 +1,7 @@
 package hu.unideb.inf;
 
 import hu.unideb.inf.model.Vehicle;
+import hu.unideb.inf.model.VehicleType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

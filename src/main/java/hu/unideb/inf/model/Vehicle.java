@@ -41,6 +41,10 @@ public class Vehicle {
         this.type = type;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getVehicleType() {
         return vehicleType;
     }
