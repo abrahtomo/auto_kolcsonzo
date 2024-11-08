@@ -14,7 +14,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 public class MainApp extends Application {
 
