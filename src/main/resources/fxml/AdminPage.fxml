@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.AdminPageController">
+   <children>
+      <AnchorPane prefHeight="732.0" prefWidth="1280.0">
+         <children>
+            <TextField fx:id="vehicleYearTF" layoutX="41.0" layoutY="35.0" promptText="Vehicle Type" />
+            <Button fx:id="addVehicleBt" layoutX="615.0" layoutY="106.0" mnemonicParsing="false" onAction="#addVehicleBtClicked" text="Add Vehicle" />
+            <TableView fx:id="vehicleTable" layoutY="174.0" prefHeight="546.0" prefWidth="1280.0">
+              <columns>
+                <TableColumn fx:id="vehicleTypeColumn" prefWidth="183.0" text="Vehicle Type" />
+                <TableColumn fx:id="makeColumn" prefWidth="183.0" text="Make" />
+                  <TableColumn fx:id="modelColumn" prefWidth="183.0" text="Model" />
+                  <TableColumn fx:id="yearColumn" prefWidth="183.0" text="Year" />
+                  <TableColumn fx:id="engineColumn" prefWidth="183.0" text="Engine" />
+                  <TableColumn fx:id="fuelTypeColumn" prefWidth="183.0" text="Fuel Type" />
+                  <TableColumn fx:id="seatingCapacityColumn" prefWidth="183.0" text="Seating Capacity" />
+              </columns>
+            </TableView>
+            <TextField fx:id="makeTF" layoutX="216.0" layoutY="35.0" promptText="Make" />
+            <TextField fx:id="modelTF" layoutX="391.0" layoutY="35.0" promptText="Model" />
+            <TextField fx:id="yearTF" layoutX="566.0" layoutY="35.0" promptText="Year" />
+            <TextField fx:id="engineTF" layoutX="741.0" layoutY="35.0" promptText="Engine" />
+            <TextField fx:id="fuelTF" layoutX="916.0" layoutY="35.0" promptText="Fuel Type" />
+            <TextField fx:id="seatingTF" layoutX="1091.0" layoutY="35.0" promptText="Seating Capacity" />
+            <Button fx:id="deleteBt" layoutX="1189.0" layoutY="106.0" mnemonicParsing="false" onAction="#deleteVehicleBtClicked" text="Delete" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

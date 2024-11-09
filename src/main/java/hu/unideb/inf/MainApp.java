@@ -52,7 +52,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(loadFXML("MainPage"), 1280, 720);
+        Scene scene = new Scene(loadFXML("AdminPage"), 1280, 720);
         stage.setTitle("SFM Autókölcsönző");
         stage.setScene(scene);
         stage.show();
