@@ -1,12 +1,12 @@
 package hu.unideb.inf;
 
 import hu.unideb.inf.model.Vehicle;
-import hu.unideb.inf.model.VehicleType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +18,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MainPageController implements Initializable {
+public class AdminPageController implements Initializable {
+
+    @FXML
+    private Button addVehicleBt;
+    @FXML
+    private Button deleteBt;
 
     @FXML
     private TableView<Vehicle> vehicleTable;
@@ -75,6 +80,10 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    private void addVehicleBt(ActionEvent event) {
+    private void addVehicleBtClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteVehicleBtClicked(ActionEvent event) {
     }
 }
