@@ -7,7 +7,7 @@ public class Vehicle {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String vehicleType;
@@ -39,6 +39,10 @@ public class Vehicle {
         this.fuelType = fuelType;
         this.seatingCapacity = seatingCapacity;
         this.type = type;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getVehicleType() {
