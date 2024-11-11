@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -37,10 +39,9 @@ public class VehicleDAOImplTest {
 
         vehicleDAO.insertVehicle(vehicle);
 
-        Vehicle retrievedVehicle = entityManager.find(Vehicle.class, vehicle.getId());
-        assertNotNull(retrievedVehicle, "Vehicle should be inserted and retrievable");
-        assertEquals(vehicle.getMake(), retrievedVehicle.getMake(), "Make should match");
-        assertEquals(vehicle.getModel(), retrievedVehicle.getModel(), "Model should match");
-        assertEquals(vehicle.getYear(), retrievedVehicle.getYear(), "Year should match");
+        List<Vehicle> retrievedVehicles = vehicleDAO.getVehicles();
+        assertEquals(retrievedVehicles.size(), 1);
+        assertEquals("Sedan", retrievedVehicles.get(0).getVehicleType());
+        assertEquals("Toyota", retrievedVehicles.get(0).getMake());
     }
 }
