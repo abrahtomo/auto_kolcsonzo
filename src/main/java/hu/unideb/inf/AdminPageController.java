@@ -61,7 +61,7 @@ public class AdminPageController implements Initializable {
         engineColumn.setCellValueFactory(new PropertyValueFactory<>("engine"));
         fuelTypeColumn.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
         seatingCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("seatingCapacity"));
-        //TypeIDColumn.setCellValueFactory(new PropertyValueFactory<>("type_id"));
+        TypeIDColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
 
         loadDataFromDatabase();
     }
