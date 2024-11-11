@@ -11,25 +11,27 @@
    <children>
       <AnchorPane prefHeight="732.0" prefWidth="1280.0">
          <children>
-            <TextField fx:id="vehicleYearTF" layoutX="41.0" layoutY="35.0" promptText="Vehicle Type" />
             <Button fx:id="addVehicleBt" layoutX="615.0" layoutY="106.0" mnemonicParsing="false" onAction="#addVehicleBtClicked" text="Add Vehicle" />
             <TableView fx:id="vehicleTable" layoutY="174.0" prefHeight="546.0" prefWidth="1280.0">
               <columns>
-                <TableColumn fx:id="vehicleTypeColumn" prefWidth="183.0" text="Vehicle Type" />
-                <TableColumn fx:id="makeColumn" prefWidth="183.0" text="Make" />
-                  <TableColumn fx:id="modelColumn" prefWidth="183.0" text="Model" />
-                  <TableColumn fx:id="yearColumn" prefWidth="183.0" text="Year" />
-                  <TableColumn fx:id="engineColumn" prefWidth="183.0" text="Engine" />
-                  <TableColumn fx:id="fuelTypeColumn" prefWidth="183.0" text="Fuel Type" />
-                  <TableColumn fx:id="seatingCapacityColumn" prefWidth="183.0" text="Seating Capacity" />
+                  <TableColumn fx:id="vehicleTypeColumn" prefWidth="160" text="Vehicle Type" />
+                  <TableColumn fx:id="makeColumn" prefWidth="160" text="Make" />
+                  <TableColumn fx:id="modelColumn" prefWidth="160" text="Model" />
+                  <TableColumn fx:id="yearColumn" prefWidth="160" text="Year" />
+                  <TableColumn fx:id="engineColumn" prefWidth="160" text="Engine" />
+                  <TableColumn fx:id="fuelTypeColumn" prefWidth="160" text="Fuel Type" />
+                  <TableColumn fx:id="seatingCapacityColumn" prefWidth="160" text="Seating Capacity" />
+                  <TableColumn fx:id="TypeIDColumn" prefWidth="160" text="TypeID" />
               </columns>
             </TableView>
-            <TextField fx:id="makeTF" layoutX="216.0" layoutY="35.0" promptText="Make" />
-            <TextField fx:id="modelTF" layoutX="391.0" layoutY="35.0" promptText="Model" />
-            <TextField fx:id="yearTF" layoutX="566.0" layoutY="35.0" promptText="Year" />
-            <TextField fx:id="engineTF" layoutX="741.0" layoutY="35.0" promptText="Engine" />
-            <TextField fx:id="fuelTF" layoutX="916.0" layoutY="35.0" promptText="Fuel Type" />
-            <TextField fx:id="seatingTF" layoutX="1091.0" layoutY="35.0" promptText="Seating Capacity" />
+             <TextField fx:id="VehicleTypeTF" layoutX="12.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Vehicle Type" />
+             <TextField fx:id="makeTF" layoutX="176.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Make" />
+             <TextField fx:id="modelTF" layoutX="340.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Model" />
+             <TextField fx:id="yearTF" layoutX="504.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Year" />
+             <TextField fx:id="engineTF" layoutX="668.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Engine" />
+             <TextField fx:id="fuelTypeTF" layoutX="832.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Fuel Type" />
+             <TextField fx:id="seatingCapacityTF" layoutX="996.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="Seating Capacity" />
+             <TextField fx:id="TypeIDTF" layoutX="1160.0" layoutY="24.0" prefHeight="25.0" prefWidth="112.0" promptText="TypeID" />
             <Button fx:id="deleteBt" layoutX="1189.0" layoutY="106.0" mnemonicParsing="false" onAction="#deleteVehicleBtClicked" text="Delete" />
          </children>
       </AnchorPane>
