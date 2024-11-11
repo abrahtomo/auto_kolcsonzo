@@ -17,10 +17,13 @@ public class VehicleDAOImpl implements VehicleDAO {
 
     @Override
     public void insertVehicle(Vehicle vehicle) {
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(vehicle);
-        this.entityManager.getTransaction().commit();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(vehicle);
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
+
 
     @Override
     public void close() {
