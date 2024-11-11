@@ -115,9 +115,10 @@ public class AdminPageController implements Initializable {
 
     private void loadDataFromDatabase() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
 
-        List<Vehicle> vehicles = entityManager.createQuery("SELECT v FROM Vehicle v", Vehicle.class).getResultList();
+        VehicleDAO vehicleDAO = new VehicleDAOImpl(entityManagerFactory, entityManager);
+
+        List<Vehicle> vehicles = vehicleDAO.getVehicles();
         vehicleList.setAll(vehicles);
 
         entityManager.getTransaction().commit();
@@ -151,6 +152,7 @@ public class AdminPageController implements Initializable {
         vehicleDAO.insertVehicle(newVehicle);
 
         loadDataFromDatabase();
+        vehicleDAO.close();
     }
 
     @FXML

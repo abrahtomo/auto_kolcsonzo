@@ -4,6 +4,7 @@ import hu.unideb.inf.model.Vehicle;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import java.util.List;
 
 public class VehicleDAOImpl implements VehicleDAO {
 
@@ -17,11 +18,15 @@ public class VehicleDAOImpl implements VehicleDAO {
 
     @Override
     public void insertVehicle(Vehicle vehicle) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(vehicle);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        this.entityManager.getTransaction().begin();
+        this.entityManager.persist(vehicle);
+        this.entityManager.getTransaction().commit();
+    }
+
+    @Override
+    public List<Vehicle> getVehicles() {
+        this.entityManager.getTransaction().begin();
+        return entityManager.createQuery("SELECT v FROM Vehicle v", Vehicle.class).getResultList();
     }
 
 
