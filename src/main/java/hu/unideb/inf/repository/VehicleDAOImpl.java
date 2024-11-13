@@ -29,6 +29,12 @@ public class VehicleDAOImpl implements VehicleDAO {
         return entityManager.createQuery("SELECT v FROM Vehicle v", Vehicle.class).getResultList();
     }
 
+    public void deleteVehicle(long VehicleID) {
+        this.entityManager.getTransaction().begin();
+
+        this.entityManager.createQuery("DELETE FROM Vehicle v WHERE v.id = :vehicleID").setParameter("vehicleID", VehicleID).executeUpdate();
+        this.entityManager.getTransaction().commit();
+    }
 
     @Override
     public void close() {

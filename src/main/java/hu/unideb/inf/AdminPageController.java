@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Id;
 import javax.persistence.Persistence;
 import java.net.URL;
 import java.util.List;
@@ -157,5 +158,16 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private void deleteVehicleBtClicked(ActionEvent event) {
+
+        List<Vehicle> selectedVehicle = vehicleTable.getSelectionModel().getSelectedItems();
+        long vehicleID;
+        VehicleDAO vehicleDAO = new VehicleDAOImpl(entityManagerFactory, entityManager);
+
+        for(Vehicle vehicle : selectedVehicle) {
+            System.out.println(vehicle.getId());
+            vehicleDAO.deleteVehicle(vehicle.getId());
+            vehicleTable.getItems().remove(vehicle);
+            System.out.println("Row deleted!");
+        }
     }
 }
