@@ -2,6 +2,7 @@ package hu.unideb.inf;
 
 import hu.unideb.inf.model.Vehicle;
 import hu.unideb.inf.model.VehicleType;
+import hu.unideb.inf.model.Users;
 import hu.unideb.inf.repository.VehicleDAO;
 import hu.unideb.inf.repository.VehicleDAOImpl;
 import javafx.collections.FXCollections;
