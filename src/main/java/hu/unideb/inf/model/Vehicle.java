@@ -24,13 +24,15 @@ public class Vehicle {
 
     private int seatingCapacity;
 
+    private int price;
+
     @ManyToOne
     @JoinColumn(name = "type_id")
     private VehicleType type;
 
     public Vehicle() {}
 
-    public Vehicle(String vehicleType, String make, String model, int year, String engine, String fuelType, int seatingCapacity, VehicleType type) {
+    public Vehicle(String vehicleType, String make, String model, int year, String engine, String fuelType, int seatingCapacity, int price, VehicleType type) {
         this.vehicleType = vehicleType;
         this.make = make;
         this.model = model;
@@ -38,6 +40,7 @@ public class Vehicle {
         this.engine = engine;
         this.fuelType = fuelType;
         this.seatingCapacity = seatingCapacity;
+        this.price = price;
         this.type = type;
     }
 
@@ -107,5 +110,13 @@ public class Vehicle {
 
     public void setType(VehicleType type) {
         this.type = type;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

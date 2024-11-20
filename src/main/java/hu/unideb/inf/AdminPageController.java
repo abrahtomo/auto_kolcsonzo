@@ -48,6 +48,8 @@ public class AdminPageController implements Initializable {
     @FXML
     private TextField seatingTF;
     @FXML
+    private TextField priceTF;
+    @FXML
     private ComboBox<VehicleType> typeIDCB;
 
     @FXML
@@ -64,6 +66,8 @@ public class AdminPageController implements Initializable {
     private TableColumn<Vehicle, String> fuelTypeColumn;
     @FXML
     private TableColumn<Vehicle, Integer> seatingCapacityColumn;
+    @FXML
+    private TableColumn<Vehicle, String> priceColumn;
     @FXML
     private TableColumn<Vehicle, Integer> TypeIDColumn;
 
@@ -86,6 +90,7 @@ public class AdminPageController implements Initializable {
         engineColumn.setCellValueFactory(new PropertyValueFactory<>("engine"));
         fuelTypeColumn.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
         seatingCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("seatingCapacity"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         TypeIDColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
 
         loadDataFromDatabase();
@@ -132,7 +137,7 @@ public class AdminPageController implements Initializable {
     private void addVehicleBtClicked(ActionEvent event) {
         if (vehicleTypeTF.getText().isEmpty() || makeTF.getText().isEmpty() || modelTF.getText().isEmpty() ||
                 yearTF.getText().isEmpty() || engineTF.getText().isEmpty() || fuelTF.getText().isEmpty() ||
-                seatingTF.getText().isEmpty() || typeIDCB.getSelectionModel().getSelectedItem() == null) {
+                seatingTF.getText().isEmpty() || priceTF.getText().isEmpty() || typeIDCB.getSelectionModel().getSelectedItem() == null) {
 
             System.out.println("Kérlek töltsd/jelöld ki az összes mezőt.");
             return;
@@ -145,15 +150,15 @@ public class AdminPageController implements Initializable {
         String engine = engineTF.getText();
         String fuelType = fuelTF.getText();
         int seatingCapacity = Integer.parseInt(seatingTF.getText());
+        int price = Integer.parseInt(priceTF.getText());
         VehicleType selectedType = typeIDCB.getSelectionModel().getSelectedItem();
 
-        Vehicle newVehicle = new Vehicle(vehicleType, make, model, year, engine, fuelType, seatingCapacity, selectedType);
+        Vehicle newVehicle = new Vehicle(vehicleType, make, model, year, engine, fuelType, seatingCapacity, price, selectedType);
 
         VehicleDAO vehicleDAO = new VehicleDAOImpl(entityManagerFactory, entityManager);
         vehicleDAO.insertVehicle(newVehicle);
 
         loadDataFromDatabase();
-        vehicleDAO.close();
     }
 
     @FXML
