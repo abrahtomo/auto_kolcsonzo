@@ -35,7 +35,7 @@ public class VehicleDAOImplTest {
 
     @Test
     void testInsertVehicle() {
-        Vehicle vehicle = new Vehicle("Sedan", "Toyota", "Camry", 2021, "2.5L I4", "Gasoline", 5, null);
+        Vehicle vehicle = new Vehicle("Sedan", "Toyota", "Camry", 2021, "2.5L I4", "Gasoline", 5, 1, null);
 
         vehicleDAO.insertVehicle(vehicle);
 

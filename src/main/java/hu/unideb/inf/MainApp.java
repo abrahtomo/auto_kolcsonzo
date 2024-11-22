@@ -28,21 +28,6 @@ public class MainApp extends Application {
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        /*entityManager.getTransaction().begin();
-
-        VehicleType vehicleType = new VehicleType();
-        vehicleType.setName("Személygépjármű");
-
-        VehicleType vehicleType1 = new VehicleType();
-        vehicleType1.setName("Mezőgazdasági munkagép");
-
-        entityManager.persist(vehicleType);
-        entityManager.persist(vehicleType1);
-        entityManager.createQuery("UPDATE Vehicle SET type_id = 1").executeUpdate();
-
-        entityManager.getTransaction().commit();
-        entityManager.close();*/
-
         launch();
     }
 
@@ -52,7 +37,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(loadFXML("AdminPage"), 1280, 720);
+        Scene scene = new Scene(loadFXML("LoginPage"), 1647, 720);
         stage.setTitle("SFM Autókölcsönző");
         stage.setScene(scene);
         stage.show();

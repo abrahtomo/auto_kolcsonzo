@@ -1,8 +1,0 @@
-A my_database.mv.db filet Windows használata esetén az alábbi mappába kell helyezni:
-
-C:\Users\felhasználóneved\
-
-
-Program futása során ezen a linken érhető el a H2 felülete:
-
-http://localhost:8082/

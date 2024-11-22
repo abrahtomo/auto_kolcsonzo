@@ -6,15 +6,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.ComboBox?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1463.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.AdminPageController">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1647.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.AdminPageController">
     <children>
-        <AnchorPane prefHeight="732.0" prefWidth="1463.0">
+        <AnchorPane prefHeight="732.0" prefWidth="1647.0">
             <children>
                 <Button fx:id="addVehicleBt" layoutX="625.0" layoutY="106.0" mnemonicParsing="false" onAction="#addVehicleBtClicked" text="Add Vehicle" />
                 <Button fx:id="deleteBt" layoutX="750.0" layoutY="106.0" mnemonicParsing="false" onAction="#deleteVehicleBtClicked" text="Delete" />
-                <TableView fx:id="vehicleTable" layoutY="174.0" prefHeight="700.0" prefWidth="1463.0">
+                <TableView fx:id="vehicleTable" layoutY="174.0" prefHeight="700.0" prefWidth="1647.0">
                     <columns>
                         <TableColumn fx:id="vehicleTypeColumn" prefWidth="183.0" text="Vehicle Type" />
                         <TableColumn fx:id="makeColumn" prefWidth="183.0" text="Make" />
@@ -23,6 +23,7 @@
                         <TableColumn fx:id="engineColumn" prefWidth="183.0" text="Engine" />
                         <TableColumn fx:id="fuelTypeColumn" prefWidth="183.0" text="Fuel Type" />
                         <TableColumn fx:id="seatingCapacityColumn" prefWidth="183.0" text="Seating Capacity" />
+                        <TableColumn fx:id="priceColumn" prefWidth="183.0" text="Price" />
                         <TableColumn fx:id="TypeIDColumn" prefWidth="183.0" text="TypeID" />
                     </columns>
                 </TableView>
@@ -33,7 +34,8 @@
                 <TextField fx:id="engineTF" layoutX="741.0" layoutY="35.0" promptText="Engine" />
                 <TextField fx:id="fuelTF" layoutX="916.0" layoutY="35.0" promptText="Fuel Type" />
                 <TextField fx:id="seatingTF" layoutX="1091.0" layoutY="35.0" promptText="Seating Capacity" />
-                <ComboBox fx:id="typeIDCB" layoutX="1266.0" layoutY="35.0" promptText="Type" />
+                <TextField fx:id="priceTF" layoutX="1266.0" layoutY="35.0" promptText="Price" />
+                <ComboBox fx:id="typeIDCB" layoutX="1441.0" layoutY="35.0" promptText="Type" />
             </children>
         </AnchorPane>
     </children>
