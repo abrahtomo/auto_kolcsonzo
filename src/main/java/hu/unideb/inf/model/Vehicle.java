@@ -1,6 +1,7 @@
 package hu.unideb.inf.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Vehicle {
@@ -25,6 +26,9 @@ public class Vehicle {
     private int seatingCapacity;
 
     private int price;
+
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+    private List<RentalItem> rentalItems;
 
     @ManyToOne
     @JoinColumn(name = "type_id")
