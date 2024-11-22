@@ -9,6 +9,8 @@
         <class>hu.unideb.inf.model.Vehicle</class>
         <class>hu.unideb.inf.model.VehicleType</class>
         <class>hu.unideb.inf.model.Users</class>
+        <class>hu.unideb.inf.model.RentalItem</class>
+        <class>hu.unideb.inf.model.Rental</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
