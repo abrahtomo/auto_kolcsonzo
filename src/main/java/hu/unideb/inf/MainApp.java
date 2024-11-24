@@ -1,7 +1,9 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.User;
 import hu.unideb.inf.model.Vehicle;
 import hu.unideb.inf.model.VehicleType;
+import hu.unideb.inf.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +15,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class MainApp extends Application {
 
@@ -28,6 +33,28 @@ public class MainApp extends Application {
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+        /*User newUser = new User();
+        newUser.setFirstName("Alex");
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(newUser);
+        entityManager.getTransaction().commit();*/
+
+        /*entityManager.getTransaction().begin();
+
+        VehicleType vehicleType = new VehicleType();
+        vehicleType.setName("Személygépjármű");
+
+        VehicleType vehicleType1 = new VehicleType();
+        vehicleType1.setName("Mezőgazdasági munkagép");
+
+        entityManager.persist(vehicleType);
+        entityManager.persist(vehicleType1);
+        entityManager.createQuery("UPDATE Vehicle SET type_id = 1").executeUpdate();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();*/
+
         launch();
     }
 
@@ -37,7 +64,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(loadFXML("LoginPage"), 1647, 720);
+        Scene scene = new Scene(loadFXML("AdminPage"), 1280, 720);
         stage.setTitle("SFM Autókölcsönző");
         stage.setScene(scene);
         stage.show();
