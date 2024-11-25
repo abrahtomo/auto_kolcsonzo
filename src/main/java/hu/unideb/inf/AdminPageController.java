@@ -2,7 +2,6 @@ package hu.unideb.inf;
 
 import hu.unideb.inf.model.Vehicle;
 import hu.unideb.inf.model.VehicleType;
-import hu.unideb.inf.model.Users;
 import hu.unideb.inf.repository.VehicleDAO;
 import hu.unideb.inf.repository.VehicleDAOImpl;
 import javafx.collections.FXCollections;
@@ -18,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Id;
 import javax.persistence.Persistence;
 import java.net.URL;
 import java.util.List;

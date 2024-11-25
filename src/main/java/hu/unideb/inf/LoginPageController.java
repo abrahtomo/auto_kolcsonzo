@@ -1,6 +1,6 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.Users;
+import hu.unideb.inf.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +42,7 @@ public class LoginPageController {
             return;
         }
 
-        Users user = authUser(username, password);
+        User user = authUser(username, password);
 
         if (user != null) {
             if (user.getIsAdmin() == 1) {
@@ -55,8 +55,8 @@ public class LoginPageController {
         }
     }
 
-    private Users authUser(String username, String password) {
-        TypedQuery<Users> query = entityManager.createQuery("SELECT u FROM Users u WHERE u.username = :username AND u.password = :password", Users.class);
+    private User authUser(String username, String password) {
+        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM Users u WHERE u.username = :username AND u.password = :password", User.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
 

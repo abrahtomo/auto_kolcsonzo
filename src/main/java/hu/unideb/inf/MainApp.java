@@ -1,9 +1,5 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.User;
-import hu.unideb.inf.model.Vehicle;
-import hu.unideb.inf.model.VehicleType;
-import hu.unideb.inf.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,10 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class MainApp extends Application {
 
