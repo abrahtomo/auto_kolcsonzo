@@ -22,6 +22,8 @@ import java.sql.Statement;
 
 public class MainApp extends Application {
 
+    private static Scene scene;
+
     public static void main(String[] args) throws SQLException {
         startDatabase();
 
@@ -64,10 +66,14 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(loadFXML("AdminPage"), 1280, 720);
+        scene = new Scene(loadFXML("HomePage"), 1280, 720);
         stage.setTitle("SFM Autókölcsönző");
         stage.setScene(scene);
         stage.show();
+    }
+
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
