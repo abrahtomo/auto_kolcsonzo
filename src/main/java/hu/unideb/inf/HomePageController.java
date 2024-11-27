@@ -48,11 +48,13 @@ public class HomePageController {
     }
 
     @FXML
-    private void loginBtClicked(ActionEvent event) {
+    private void loginBtClicked(ActionEvent event) throws IOException {
+        MainApp.setRoot("LoginPage");
     }
 
     @FXML
-    private void registerBtClicked(ActionEvent event) {
+    private void registerBtClicked(ActionEvent event) throws IOException {
+        MainApp.setRoot("RegistrationPage");
     }
 
     @FXML

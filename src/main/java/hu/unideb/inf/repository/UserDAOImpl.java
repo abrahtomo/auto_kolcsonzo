@@ -4,6 +4,7 @@ import hu.unideb.inf.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
@@ -27,6 +28,13 @@ public class UserDAOImpl implements UserDAO {
     public List<User> getUsers() {
         this.entityManager.getTransaction().begin();
         return this.entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
+    }
+
+    @Override
+    public boolean isusernameTaken(String username) {
+        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class);
+        query.setParameter("username", username);
+        return !query.getResultList().isEmpty();
     }
 
     @Override

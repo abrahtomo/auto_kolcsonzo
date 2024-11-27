@@ -56,7 +56,7 @@ public class LoginPageController {
     }
 
     private User authUser(String username, String password) {
-        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM Users u WHERE u.username = :username AND u.password = :password", User.class);
+        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
 
