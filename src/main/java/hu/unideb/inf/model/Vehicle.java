@@ -27,7 +27,7 @@ public class Vehicle {
 
     private int price;
 
-    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RentalItem> rentalItems;
 
     @ManyToOne

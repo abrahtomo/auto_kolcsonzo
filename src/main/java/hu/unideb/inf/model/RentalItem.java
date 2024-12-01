@@ -3,6 +3,7 @@ package hu.unideb.inf.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "rental_items")
 public class RentalItem {
 
     @Id

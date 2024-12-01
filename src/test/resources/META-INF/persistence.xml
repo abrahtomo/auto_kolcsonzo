@@ -4,6 +4,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>hu.unideb.inf.model.Vehicle</class>
         <class>hu.unideb.inf.model.VehicleType</class>
+        <class>hu.unideb.inf.model.RentalItem</class>
+        <class>hu.unideb.inf.model.Rental</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1"/>
