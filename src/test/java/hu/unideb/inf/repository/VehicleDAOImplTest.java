@@ -1,7 +1,5 @@
 package hu.unideb.inf.repository;
 
-import hu.unideb.inf.model.RentalItem;
-import hu.unideb.inf.model.User;
 import hu.unideb.inf.model.Vehicle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,12 +8,10 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class VehicleDAOImplTest {
 
@@ -37,7 +33,7 @@ public class VehicleDAOImplTest {
     }
 
     @Test
-    void testInsertVehicle() {
+    void testVehicleQueries() {
         Vehicle vehicle = new Vehicle("Sedan", "Toyota", "Camry", 2021, "2.5L I4", "Gasoline", 5, 1, null);
 
         vehicleDAO.insertVehicle(vehicle);

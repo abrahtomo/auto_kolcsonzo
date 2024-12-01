@@ -1,5 +1,6 @@
-package hu.unideb.inf;
+package hu.unideb.inf.controller;
 
+import hu.unideb.inf.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

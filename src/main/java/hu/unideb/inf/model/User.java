@@ -1,11 +1,9 @@
 package hu.unideb.inf.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -26,8 +24,7 @@ public class User {
 
     public User() {}
 
-    public User(Long id, String username, String password, String firstName, String lastName, String email, int isAdmin) {
-        this.id = id;
+    public User(String username, String password, String firstName, String lastName, String email, int isAdmin) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
