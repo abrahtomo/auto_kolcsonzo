@@ -1,6 +1,7 @@
 package hu.unideb.inf.repository;
 
 import hu.unideb.inf.model.Vehicle;
+import hu.unideb.inf.model.VehicleType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +22,14 @@ public class VehicleDAOImpl implements VehicleDAO {
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(vehicle);
         this.entityManager.getTransaction().commit();
+    }
+
+    @Override
+    public List<VehicleType> getAllVehicleTypes(){
+        this.entityManager.getTransaction().begin();
+        List<VehicleType> vehicleTypes = this.entityManager.createQuery("SELECT vt FROM VehicleType vt", VehicleType.class).getResultList();
+        this.entityManager.getTransaction().commit();
+        return vehicleTypes;
     }
 
     @Override

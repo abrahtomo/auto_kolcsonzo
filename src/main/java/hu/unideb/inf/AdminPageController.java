@@ -97,7 +97,8 @@ public class AdminPageController implements Initializable {
     }
 
     private void loadVehicleTypes() {
-        List<VehicleType> vehicleTypes = entityManager.createQuery("SELECT vt FROM VehicleType vt", VehicleType.class).getResultList();
+        VehicleDAO vehicleDAO = new VehicleDAOImpl(entityManagerFactory, entityManager);
+        List<VehicleType> vehicleTypes = vehicleDAO.getAllVehicleTypes();
 
         typeIDCB.setItems(FXCollections.observableArrayList(vehicleTypes));
 
