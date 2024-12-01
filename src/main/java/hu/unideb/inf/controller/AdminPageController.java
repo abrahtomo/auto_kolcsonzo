@@ -1,4 +1,4 @@
-package hu.unideb.inf;
+package hu.unideb.inf.controller;
 
 import hu.unideb.inf.model.Vehicle;
 import hu.unideb.inf.model.VehicleType;

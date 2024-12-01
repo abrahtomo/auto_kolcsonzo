@@ -1,4 +1,4 @@
-package hu.unideb.inf;
+package hu.unideb.inf.controller;
 
 import hu.unideb.inf.model.User;
 import javafx.event.ActionEvent;

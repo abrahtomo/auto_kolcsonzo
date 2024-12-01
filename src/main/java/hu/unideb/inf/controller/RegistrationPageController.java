@@ -1,4 +1,4 @@
-package hu.unideb.inf;
+package hu.unideb.inf.controller;
 
 import hu.unideb.inf.model.User;
 import hu.unideb.inf.repository.UserDAO;
@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 public class RegistrationPageController {
 
