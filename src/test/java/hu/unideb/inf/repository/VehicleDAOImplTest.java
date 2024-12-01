@@ -1,5 +1,7 @@
 package hu.unideb.inf.repository;
 
+import hu.unideb.inf.model.RentalItem;
+import hu.unideb.inf.model.User;
 import hu.unideb.inf.model.Vehicle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -43,5 +46,9 @@ public class VehicleDAOImplTest {
         assertEquals(retrievedVehicles.size(), 1);
         assertEquals("Sedan", retrievedVehicles.get(0).getVehicleType());
         assertEquals("Toyota", retrievedVehicles.get(0).getMake());
+
+        vehicleDAO.deleteVehicle(vehicle.getId());
+        List<Vehicle> retrievedVehiclesAfterDeletion = vehicleDAO.getVehicles();
+        assertEquals(retrievedVehiclesAfterDeletion.size(), 0);
     }
 }
