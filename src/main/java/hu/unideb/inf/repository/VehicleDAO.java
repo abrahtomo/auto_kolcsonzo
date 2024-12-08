@@ -10,7 +10,10 @@ public interface VehicleDAO extends AutoCloseable {
     List<Vehicle> getVehicles();
     List<VehicleType> getAllVehicleTypes();
     void deleteVehicle(long VehicleID);
-
+    void confirmRental(Long id);
     @Override
     void close();
+
+
+
 }

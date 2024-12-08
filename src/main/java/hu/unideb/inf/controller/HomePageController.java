@@ -43,6 +43,7 @@ public class HomePageController {
     @FXML
     private TableColumn<Vehicle, Integer> seatingCapacityColumn;
 
+
     @FXML
     private void adminPageBtClicked() throws IOException {
         MainApp.setRoot("AdminPage");
@@ -61,4 +62,9 @@ public class HomePageController {
     @FXML
     private void searchBtClicked(ActionEvent event) {
     }
+
+    public void cartBtClicked(ActionEvent actionEvent) throws IOException {
+        MainApp.setRoot("CartPage");
+    }
+
 }

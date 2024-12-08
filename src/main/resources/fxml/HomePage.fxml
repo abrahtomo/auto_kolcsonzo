@@ -27,6 +27,8 @@
             <Button fx:id="registerBt" layoutX="1206.0" layoutY="14.0" mnemonicParsing="false" onAction="#registerBtClicked" text="Register" />
             <TextField fx:id="searchTf" alignment="TOP_CENTER" layoutX="566.0" layoutY="14.0" promptText="Search" />
             <Button fx:id="searchBt" layoutX="614.0" layoutY="49.0" mnemonicParsing="false" onAction="#searchBtClicked" text="Search" />
+                <Button fx:id="cartBt" layoutX="614.0" layoutY="100" mnemonicParsing="false" onAction="#cartBtClicked" text="View avaiable cars!" />
+
             <Button fx:id="adminPageBt" layoutX="1045.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminPageBtClicked" text="AdminPage" />
             </children>
         </AnchorPane>
