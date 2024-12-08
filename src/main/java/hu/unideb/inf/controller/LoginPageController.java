@@ -1,5 +1,6 @@
 package hu.unideb.inf.controller;
 
+import hu.unideb.inf.MainApp;
 import hu.unideb.inf.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +34,7 @@ public class LoginPageController {
     }
 
     @FXML
-    private void loginBtClicked(ActionEvent event) {
+    private void loginBtClicked(ActionEvent event) throws IOException {
         String username = usernameTF.getText();
         String password = passwordPF.getText();
 
@@ -48,7 +49,7 @@ public class LoginPageController {
             if (user.getIsAdmin() == 1) {
                 openAdminPage();
             } else {
-                showError("Hozzáférés megtagadva!", "Nincsenek admin jogaid.");
+                MainApp.setRoot("UserPage");
             }
         } else {
             showError("Hibás bejelentkezés!", "Hibás felhasználónév vagy jelszó.");
