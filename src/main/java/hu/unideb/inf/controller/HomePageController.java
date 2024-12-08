@@ -55,7 +55,7 @@ public class HomePageController {
 
     @FXML
     private void registerBtClicked(ActionEvent event) throws IOException {
-        MainApp.setRoot("RegistrationPage");
+        MainApp.setRoot("RegisterPage");
     }
 
     @FXML

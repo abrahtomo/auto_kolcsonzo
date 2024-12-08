@@ -1,7 +1,6 @@
-package hu.unideb.inf;
+package hu.unideb.inf.controller;
 
 import hu.unideb.inf.model.Vehicle;
-import hu.unideb.inf.model.VehicleType;
 import hu.unideb.inf.repository.VehicleDAO;
 import hu.unideb.inf.repository.VehicleDAOImpl;
 import javafx.collections.FXCollections;
@@ -10,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;

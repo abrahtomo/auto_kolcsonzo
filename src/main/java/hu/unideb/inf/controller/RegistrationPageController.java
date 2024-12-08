@@ -19,7 +19,7 @@ public class RegistrationPageController {
     @FXML
     private TextField usernameTF;
     @FXML
-    private PasswordField passwordTF;
+    private PasswordField passwordTf;
     @FXML
     private PasswordField confirmPasswordTF;
     @FXML
@@ -42,28 +42,10 @@ public class RegistrationPageController {
     @FXML
     private void registerBtnClicked(ActionEvent event) {
         String username = usernameTF.getText();
-        String password = passwordTF.getText();
-        String confirmPassword = confirmPasswordTF.getText();
         String firstName = firstNameTF.getText();
         String lastName = lastNameTF.getText();
         String email = emailTF.getText();
-
-        if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || email.isEmpty()) {
-            showError("Hiba!", "Kérlek töltsd ki az összes mezőt.");
-            return;
-        }
-
-        if (!password.equals(confirmPassword)) {
-            showError("Hiba!", "A jelszavak nem egyeznek!");
-            return;
-        }
-
-        UserDAO userDAO = new UserDAOImpl(entityManagerFactory, entityManager);
-        if (userDAO.isusernameTaken(username)) {
-            showError("Hiba!","Ez a felhasználónév már foglalt.");
-            return;
-        }
-
+        String password = passwordTf.getText();
 
         User user = new User();
         user.setUsername(username);
@@ -72,6 +54,17 @@ public class RegistrationPageController {
         user.setLastName(lastName);
         user.setEmail(email);
         user.setIsAdmin(0);
+
+        if (username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || email.isEmpty()) {
+            showError("Hiba!", "Kérlek töltsd ki az összes mezőt.");
+            return;
+        }
+
+        UserDAO userDAO = new UserDAOImpl(entityManagerFactory, entityManager);
+        if (userDAO.isusernameTaken(username)) {
+            showError("Hiba!","Ez a felhasználónév már foglalt.");
+            return;
+        }
 
         userDAO.insertUser(user);
 
