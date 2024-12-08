@@ -1,6 +1,7 @@
 package hu.unideb.inf.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +22,9 @@ public class User {
     private String email;
 
     private int isAdmin;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Rental> rentals;
 
     public User() {}
 
@@ -83,5 +87,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<Rental> rentals) {
+        this.rentals = rentals;
     }
 }

@@ -23,12 +23,17 @@ public class Rental {
     @Enumerated(EnumType.STRING)
     private RentalStatus status;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Rental() {}
 
-    public Rental(LocalDate rentalDate, LocalDate returnDate, RentalStatus status) {
+    public Rental(LocalDate rentalDate, LocalDate returnDate, RentalStatus status, User user) {
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
         this.status = status;
+        this.user = user;
     }
 
     public LocalDate getRentalDate() {
@@ -53,5 +58,13 @@ public class Rental {
 
     public void setStatus(RentalStatus status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
